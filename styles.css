@@ -1,0 +1,219 @@
+/* =========================================================
+   Chatter landing page
+   Design width: 1440px.
+   ========================================================= */
+
+.logo { display: flex; align-items: center;}
+
+:root {
+  --black: #111111;          /* Black/700 */
+  --grey: #626262;           /* Black/400 */
+  --border: #d0d0d0;         /* Black/100 */
+  --blue: #543ee0;           /* Blue/500 */
+  --cream: rgba(255, 237, 204, .5);
+  --lavender: #eceafb;       /* soft circle behind the feature icons */
+
+  --font: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+  font-variation-settings: "opsz" 14;
+  color: var(--black);
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, p, ul, blockquote { margin: 0; padding: 0; }
+ul { list-style: none; }
+a { color: inherit; text-decoration: none; }
+
+h1, h2 { font-size: 48px; line-height: 72px; font-weight: 700; }
+h3 { font-size: 24px; line-height: 36px; font-weight: 500; }
+
+/* ---------- Photos (background images so the layout holds even before the files are added) ---------- */
+.hero__photo, .about__photo, .testimonial__photo, .avatar {
+  background-color: #d9d6e8;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 157px; height: 56px; padding: 8px 16px;
+  border: 1px solid var(--blue); border-radius: 8px;
+  font-size: 18px; line-height: 27px; font-weight: 700; white-space: nowrap;
+  transition: background-color .2s, color .2s, transform .1s;
+}
+.btn:active { transform: translateY(1px); }
+.btn--primary { background: var(--blue); color: #fff; }
+.btn--primary:hover { background: #4330c4; border-color: #4330c4; }
+.btn--outline { background: transparent; color: var(--black); }
+.btn--outline:hover { background: var(--blue); color: #fff; }
+
+.logo { font-size: 48px; line-height: 72px; font-weight: 700; color: var(--blue); letter-spacing: 0; }
+
+/* =========================================================
+   Header
+   ========================================================= */
+.site-header {
+  position: relative; z-index: 5;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 98px; padding: 0 76px 0 71px;
+  background: #fff; border: 1px solid var(--border);
+}
+.site-header .logo { position: relative; top: -1px; }
+
+.site-header__right { display: flex; align-items: center; gap: 174px; }
+
+.nav { display: flex; gap: 24px; font-weight: 700; font-size: 16px; line-height: 24px; }
+.nav a:hover { color: var(--blue); }
+
+.site-header__actions { display: flex; gap: 24px; }
+
+/* =========================================================
+   Hero
+   ========================================================= */
+.hero { position: relative; height: 765px; }
+.hero__photo { position: absolute; inset: 0; background-image: url("assets/images/hero.svg"); background-color: #4a403c; }
+.hero__overlay { position: absolute; inset: 1px 0 0; background: rgba(0, 0, 0, .55); }
+
+.hero__content {
+  width: min(984px, calc(100% - 48px)); margin: 0 auto; padding-top: 216px;
+  color: #fff;
+}
+.hero__content h1 { width: 100%; }
+.hero__content p { margin-top: 24px; max-width: 740px; font-size: 24px; line-height: 36px; font-weight: 500; }
+.hero__content .btn { margin-top: 36px; }
+
+/* =========================================================
+   About
+   ========================================================= */
+.about {
+  display: flex; align-items: flex-start; gap: 84px;
+  width: 100%; max-width: 1328px; margin: 96px auto 0; padding: 0 16px;
+}
+.about__text { flex: none; width: 686px; max-width: 100%; display: flex; flex-direction: column; gap: 34px; }
+.about__photo { flex: none; width: 500px; height: 404px; border-radius: 8px; background-image: url("assets/images/about.svg"); }
+
+/* =========================================================
+   Why join
+   ========================================================= */
+.why { padding: 96px 16px 107px; }
+.why__inner { width: 100%; max-width: 1040px; margin: 0 auto; }
+.why__inner h2 { text-align: center; }
+.why__lead { margin-top: 24px; }
+
+.cards { display: flex; gap: 48px; margin-top: 54px; }
+.card {
+  flex: none; width: 306px; height: 324px; padding: 15px 18px;
+  border: 1px solid var(--border); border-radius: 8px; overflow: hidden;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.card__icon {
+  flex: none; width: 92px; height: 88px;
+}
+.card__icon svg {flex: none; width: 92px; height: 88px; }
+.card p { width: 254px; max-width: 100%; color: var(--grey); }
+
+/* =========================================================
+   Testimonial
+   ========================================================= */
+.testimonial { background: var(--cream); height: 492px; }
+.testimonial__inner { position: relative; width: 100%; max-width: 1440px; height: 100%; margin: 0 auto; }
+
+.testimonial__photo {
+  position: absolute; left: 84px; top: 99px; width: 300px; height: 292px;
+  border-radius: 50%; background-image: url("assets/images/img\ 1.svg");
+}
+.testimonial__body {
+  position: absolute; left: 440px; top: 93px; width: 924px;
+  display: flex; flex-direction: column; align-items: flex-start; gap: 24px;
+}
+.testimonial blockquote { display: flex; flex-direction: column; gap: 48px; }
+.testimonial__name { font-size: 24px; line-height: 36px; font-weight: 500; }
+.testimonial__role { font-size: 18px; line-height: 27px; }
+
+/* =========================================================
+   Connect
+   ========================================================= */
+.connect { padding: 96px 16px 74px; }
+.connect__inner { display: flex; justify-content: center; align-items: flex-start; gap: 120px; width: 100%; max-width: 1200px; margin: 0 auto; }
+
+.avatars { flex: none; display: flex; align-items: center; gap: 44px; }
+.avatars__col { display: flex; flex-direction: column; gap: 96px; }
+.avatar { display: block; width: 169px; height: 169px; border-radius: 50%; }
+.avatar--1 { background-image: url("assets/images/img 4.jpg"); }
+.avatar--2 { background-image: url("assets/images/img 2.jpg"); }
+.avatar--3 { background-image: url("assets/images/img 3.jpg"); margin-left: -8px; }
+
+.connect__text { flex: none; width: 655px; max-width: 100%; display: flex; flex-direction: column; align-items: flex-start; gap: 32px; }
+.connect__text h2 { width: 655px; max-width: 100%; }
+.connect__text p { width: 594px; max-width: 100%; margin-top: -8px; } /* 24px gap to the heading */
+
+/* =========================================================
+   Footer
+   ========================================================= */
+.footer { background: var(--cream); min-height: 402px; }
+.footer__inner {
+  display: grid; grid-template-columns: 432px 331px 341px 1fr;
+  padding: 60px 0 0 80px; max-width: 1440px; margin: 0 auto;
+}
+.footer .logo { margin-top: 12px; align-self: start; }
+.fcol h3 { color: var(--black); }
+.fcol ul { margin-top: 28px; display: flex; flex-direction: column; gap: 16px; }
+.fcol a:hover { color: var(--blue); }
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+@media (max-width: 1280px) {
+  .site-header__right { gap: 48px; }
+}
+
+@media (max-width: 1100px) {
+  h1, h2, .logo { font-size: 36px; line-height: 48px; }
+
+  .site-header { height: auto; min-height: 98px; flex-wrap: wrap; gap: 12px 24px; padding: 12px 24px; }
+  .site-header__right { flex-wrap: wrap; gap: 12px 32px; }
+
+  .hero { height: auto; min-height: 560px; }
+  .hero__content { padding: 120px 0 96px; }
+
+  .about { flex-direction: column; gap: 40px; }
+  .about__text { width: 100%; }
+  .about__photo { width: 100%; max-width: 500px; height: 320px; }
+
+  .why { padding: 72px 24px; }
+  .cards { flex-wrap: wrap; gap: 24px; }
+
+  .testimonial { height: auto; padding: 56px 24px; }
+  .testimonial__inner { display: flex; flex-direction: column; align-items: center; gap: 32px; }
+  .testimonial__photo, .testimonial__body { position: static; width: 100%; }
+  .testimonial__photo { max-width: 300px; }
+
+  .connect { padding: 72px 24px; }
+  .connect__inner { flex-direction: column; align-items: center; gap: 48px; }
+  .avatars__col { gap: 24px; }
+
+  .footer__inner { grid-template-columns: 1fr 1fr 1fr; gap: 32px; padding: 48px 24px; }
+  .footer .logo { grid-column: 1 / -1; margin-top: 0; }
+}
+
+@media (max-width: 640px) {
+  .site-header__right { width: 100%; justify-content: space-between; }
+  .nav { gap: 16px; }
+  .site-header__actions { gap: 12px; }
+  .btn { width: 140px; }
+  .footer__inner { grid-template-columns: 1fr 1fr; }
+}
